@@ -135,8 +135,8 @@ export default [
 
 ### 插件和设置
 
-- **pangu 插件**：自动检测英文和中文之间预留空格。
 - **`import/ignore`**：忽略导入的 CSS 和其他样式表。
+- **`import/order`**: 外部在前内部在后。
 - **React 版本检测**：自动检测安装的 React 版本。
 
 ## 为何使用此配置

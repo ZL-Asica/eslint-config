@@ -136,6 +136,7 @@ This configuration includes the following rule sets and plugins:
 ### Plugins and Settings
 
 - **`import/ignore`**: Ignores CSS and other stylesheets for imports.
+- **`import/order`**: External first then internal, newline in between.
 - **React Version Detection**: Automatically detects the installed React version.
 
 ## Why Use This Configuration?
