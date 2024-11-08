@@ -63,9 +63,38 @@ export default [
       'simple-import-sort/exports': 'error', // Enforce export sorting"
 
       // Import Rules
-      'import/first': 'error',
-      'import/newline-after-import': 'error',
-      'import/no-duplicates': 'error',
+      'import/ignore': [
+        'node_modules',
+        String.raw`\.s?css$`,
+        String.raw`\.svg$`,
+      ], // Ignore imports of node_modules, CSS, and SVG files
+      'import/first': 'error', // Ensure all imports appear before other statements
+      'import/newline-after-import': 'error', // Enforce a newline after import statements
+      'import/no-duplicates': 'error', // Disallow duplicate imports
+      'import/exports-last': 'error', // Ensure all exports appear after other statements
+      'import/no-named-as-default': 'error', // Disallow use of the default export as a named export
+      'import/no-named-as-default-member': 'error', // Disallow use of the default export as a named export
+      'import/no-cycle': 'error', // Disallow cyclic dependencies
+      'import/no-self-import': 'error', // Disallow a module importing itself
+      'import/group-exports': 'error', // Prefer a single export default over named exports
+      'import/order': [
+        'error',
+        {
+          pathGroups: [
+            {
+              pattern: '~/**',
+              group: 'external',
+              position: 'before', // External imports first
+            },
+            {
+              pattern: '@/**',
+              group: 'internal',
+              position: 'after', // Internal imports last
+            },
+          ],
+          'newlines-between': 'always',
+        },
+      ],
     },
   },
   eslintConfigPrettier, // Prettier compatibility rules
