@@ -34,16 +34,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🚀 Publish to npm
-        run: npm publish --registry=https://registry.npmjs.org
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # Use npm token from secrets
-
-      - name: 🏡 Set up Node.js for GitHub Packages
-        uses: actions/setup-node@v4
-        with:
-          registry-url: 'https://npm.pkg.github.com'
-
-      - name: 🏡 Publish to GitHub Packages
-        run: npm publish --registry=https://npm.pkg.github.com
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use GITHUB_TOKEN for GitHub Packages

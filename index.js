@@ -41,6 +41,13 @@ export default [
       'simple-import-sort': simpleImportSort,
       import: importPlugin,
     },
+    settings: {
+      'import/ignore': [
+        'node_modules',
+        '.coffee$', // fraught with parse errors
+        '.(scss|less|css|svg)$', // can't parse unprocessed CSS modules, either
+      ],
+    },
     rules: {
       // JavaScript Rules
       eqeqeq: ['error', 'always'], // Require === and !==
@@ -63,11 +70,6 @@ export default [
       'simple-import-sort/exports': 'error', // Enforce export sorting"
 
       // Import Rules
-      'import/ignore': [
-        'node_modules',
-        String.raw`\.s?css$`,
-        String.raw`\.svg$`,
-      ], // Ignore imports of node_modules, CSS, and SVG files
       'import/first': 'error', // Ensure all imports appear before other statements
       'import/newline-after-import': 'error', // Enforce a newline after import statements
       'import/no-duplicates': 'error', // Disallow duplicate imports

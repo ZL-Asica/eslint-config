@@ -16,6 +16,18 @@
   "homepage": "https://github.com/ZL-Asica/eslint-config",
   "funding": "https://github.com/sponsors/ZL-Asica",
   "main": "./index.js",
+  "files": [
+    "README.md",
+    "README_CN.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "package.json",
+    "index.js",
+    "typescript.js",
+    "react.js",
+    "types.d.ts"
+  ],
+  "types": "./types.d.ts",
   "keywords": [
     "eslint",
     "eslint-config",
