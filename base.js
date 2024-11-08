@@ -81,7 +81,7 @@ export default [
       'import/group-exports': 'error', // Prefer a single export default over named exports
       'unicorn/no-null': 'off', // Disallow the use of null
       'import/no-absolute-path': 'error', // Disallow the use of absolute paths
-      'import/prefer-default-export': 'warn', // Prefer a default export if module exports a single name
+      'import/prefer-default-export': 'false', // Prefer a default export if module exports a single name
       'import/order': [
         'error',
         {
