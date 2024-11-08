@@ -25,39 +25,50 @@ export default [
             {
               pattern: 'react',
               group: 'builtin',
-              position: 'before', // React always comes first
+              position: 'before', // Ensures React is prioritized at the very top
             },
             {
               pattern: 'react-dom',
               group: 'builtin',
-              position: 'before', // React DOM always comes second
+              position: 'before', // Ensures React DOM immediately follows React
             },
             {
               pattern: '~/**',
               group: 'external',
-              position: 'after', // Aliases come after builtins
+              position: 'after', // All aliased external imports follow built-in imports
             },
             {
-              pattern: [
-                'components/**',
-                'pages/**',
-                '@/components/**',
-                '@/pages/**',
-              ],
+              pattern: '@/pages/**',
               group: 'internal',
-              position: 'after', // Components come after aliases
+              position: 'after', // Project-specific pages imported after components
             },
             {
-              pattern: ['hooks/**', 'utils/**', '@/hooks/**', '@/utils/**'],
+              pattern: '@/components/**',
               group: 'internal',
-              position: 'after', // Hooks come after components
+              position: 'after', // Project-specific components imported after external aliases
             },
             {
-              pattern: ['**/*.css', '**/*.scss', '**/*.sass', '@/styles/**'],
+              pattern: '@/hooks/**',
+              group: 'internal',
+              position: 'after', // Hooks imported following components and pages
+            },
+            {
+              pattern: '@/utils/**',
+              group: 'internal',
+              position: 'after', // Utility files imported following hooks
+            },
+            {
+              pattern: '**/*.css',
               group: 'type',
-              position: 'after', // CSS files come last
+              position: 'after', // CSS files positioned last to separate styles from functional code
+            },
+            {
+              pattern: '@/styles/**',
+              group: 'type',
+              position: 'after', // Project-specific styles are last to keep order clean
             },
           ],
+
           'newlines-between': 'always',
         },
       ],

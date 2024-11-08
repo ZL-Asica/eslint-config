@@ -93,12 +93,22 @@ export default [
               position: 'before',
             },
             {
-              pattern: ['@/**', 'src/**'],
+              pattern: '@/**',
               group: 'internal',
               position: 'after',
             },
             {
-              pattern: ['./*', '../*'],
+              pattern: 'src/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '../*',
+              group: 'parent',
+              position: 'after',
+            },
+            {
+              pattern: './*',
               group: 'parent',
               position: 'after',
             },
