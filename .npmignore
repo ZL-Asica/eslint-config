@@ -1,0 +1,5 @@
+eslint.config.mjs
+prettier.config.cjs
+.prettierignore
+.vscode/
+.github/
