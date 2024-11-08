@@ -1,0 +1,53 @@
+{
+  "name": "eslint-config-zl-asica",
+  "version": "1.0.0",
+  "description": "A shareable and reusable Eslint configuration by ZL-Asica.",
+  "author": {
+    "name": "ZL Asica",
+    "email": "zl@zla.app",
+    "url": "https://github.com/ZL-Asica/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZL-Asica/eslint-config.git"
+  },
+  "bugs": "https://github.com/ZL-Asica/eslint-config/issues",
+  "homepage": "https://github.com/ZL-Asica/eslint-config",
+  "funding": "https://github.com/sponsors/ZL-Asica",
+  "main": "./index.js",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "linter",
+    "typescript",
+    "react",
+    "lint",
+    "shareable config",
+    "zl-asica"
+  ],
+  "peerDependencies": {
+    "@eslint/js": "^9",
+    "@typescript-eslint/parser": "^8",
+    "eslint": "^9",
+    "eslint-config-prettier": "^9",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-jsx-a11y": "^6",
+    "eslint-plugin-react": "^7",
+    "eslint-plugin-react-hooks": "^5",
+    "eslint-plugin-unicorn": "^56",
+    "globals": "^15",
+    "typescript-eslint": "^8",
+    "eslint-plugin-simple-import-sort": "^12"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.13.0",
+    "@zl-asica/prettier-config": "latest",
+    "typescript-eslint": "^8.13.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  }
+}

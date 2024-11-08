@@ -1,0 +1,49 @@
+name: 🏷️ Publish Package
+
+on:
+  push:
+    tags:
+      - 'v*' # Only trigger when a version tag is pushed, like v1.0.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write # Ensure GITHUB_TOKEN has write access to packages
+
+    steps:
+      - name: 📂 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Set up Node.js for npm
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*' # Use the latest LTS version for stability
+          registry-url: 'https://registry.npmjs.org' # Default to npm registry
+
+      - name: 🛠️ Install dependencies
+        run: npm ci # Using npm ci for a clean install based on package-lock.json
+
+      - name: 📝 Use tag version in package.json
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/v}"
+          npm version "$VERSION" --no-git-tag-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🚀 Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # Use npm token from secrets
+
+      - name: 🏡 Set up Node.js for GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: 🏡 Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use GITHUB_TOKEN for GitHub Packages
