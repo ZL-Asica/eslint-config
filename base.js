@@ -79,19 +79,28 @@ export default [
       'import/no-cycle': 'error', // Disallow cyclic dependencies
       'import/no-self-import': 'error', // Disallow a module importing itself
       'import/group-exports': 'error', // Prefer a single export default over named exports
+      'unicorn/no-null': 'off', // Disallow the use of null
+      'import/no-absolute-path': 'error', // Disallow the use of absolute paths
+      'import/prefer-default-export': 'warn', // Prefer a default export if module exports a single name
       'import/order': [
         'error',
         {
+          // Configure the groups
           pathGroups: [
             {
               pattern: '~/**',
               group: 'external',
-              position: 'before', // External imports first
+              position: 'before',
             },
             {
-              pattern: '@/**',
+              pattern: ['@/**', 'src/**'],
               group: 'internal',
-              position: 'after', // Internal imports last
+              position: 'after',
+            },
+            {
+              pattern: ['./*', '../*'],
+              group: 'parent',
+              position: 'after',
             },
           ],
           'newlines-between': 'always',

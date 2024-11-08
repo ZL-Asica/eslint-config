@@ -16,7 +16,7 @@ A shareable and reusable ESLint configuration by **ZL Asica**, designed to provi
   - [Basic Usage (JavaScript Projects)](#basic-usage-javascript-projects)
   - [TypeScript Projects](#typescript-projects)
   - [React Projects](#react-projects)
-  - [TypeScript and React Combined](#typescript-and-react-combined)
+  - [TypeScript + React Combined](#typescript--react-combined)
 - [Configuration Details](#configuration-details)
 - [Why Use This Configuration?](#why-use-this-configuration)
 
@@ -34,11 +34,11 @@ pnpm add -D eslint eslint-config-zl-asica
 
 ## Usage
 
-The configuration provides three separate modules: **default (JavaScript)**, **TypeScript**, and **React**. Each configuration can be imported as needed.
+This configuration offers three modular configurations: **default (JavaScript)**, **TypeScript**, and **React**. You can import each as needed.
 
 ### Basic Usage (JavaScript Projects)
 
-For JavaScript projects, import the main configuration:
+For JavaScript projects, import the base configuration:
 
 ```javascript
 // `eslint.config.js` or `eslint.config.mjs`
@@ -47,7 +47,7 @@ import { zlAsicaConfig } from 'eslint-config-zl-asica';
 export default [
   ...zlAsicaConfig,
 
-  // Your custom modifications
+  // Custom modifications
   {
     rules: {
       'no-console': 'warn',
@@ -58,17 +58,16 @@ export default [
 
 ### TypeScript Projects
 
-If your project uses TypeScript, import the `typescript` configuration in addition to the default one:
+For TypeScript projects, use `zlAsicaTsConfig`, which includes the base configuration plus TypeScript rules:
 
 ```javascript
 // `eslint.config.js` or `eslint.config.mjs`
-import { zlAsicaConfig, zlAsicaTsConfig } from 'eslint-config-zl-asica';
+import { zlAsicaTsConfig } from 'eslint-config-zl-asica';
 
 export default [
-  ...zlAsicaConfig,
   ...zlAsicaTsConfig,
 
-  // Your custom modifications
+  // Custom modifications
   {
     rules: {
       'no-console': 'warn',
@@ -79,17 +78,16 @@ export default [
 
 ### React Projects
 
-For projects that use React, import the `react` configuration alongside the default configuration:
+For React projects, use `zlAsicaReactConfig`, which includes the base configuration plus React rules:
 
 ```javascript
 // `eslint.config.js` or `eslint.config.mjs`
-import { zlAsicaConfig, zlAsicaReactConfig } from 'eslint-config-zl-asica';
+import { zlAsicaReactConfig } from 'eslint-config-zl-asica';
 
 export default [
-  ...zlAsicaConfig,
   ...zlAsicaReactConfig,
 
-  // Your custom modifications
+  // Custom modifications
   {
     rules: {
       'no-console': 'warn',
@@ -98,24 +96,18 @@ export default [
 ];
 ```
 
-### TypeScript and React Combined
+### TypeScript + React Combined
 
-For projects that use both TypeScript and React, import all three configurations:
+For projects using both TypeScript and React, use `zlAsicaTsReactConfig`, a combination of all configurations:
 
 ```javascript
 // `eslint.config.js` or `eslint.config.mjs`
-import {
-  zlAsicaConfig,
-  zlAsicaTsConfig,
-  zlAsicaReactConfig,
-} from 'eslint-config-zl-asica';
+import { zlAsicaTsReactConfig } from 'eslint-config-zl-asica';
 
 export default [
-  ...zlAsicaConfig,
-  ...zlAsicaTsConfig,
-  ...zlAsicaReactConfig,
+  ...zlAsicaTsReactConfig,
 
-  // Your custom modifications
+  // Custom modifications
   {
     rules: {
       'no-console': 'warn',

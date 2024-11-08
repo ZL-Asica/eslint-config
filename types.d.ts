@@ -1,9 +1,11 @@
 declare module 'eslint-config-zl-asica' {
   import type { Linter } from 'eslint';
 
+  // Main configurations as arrays of configurations
   export const zlAsicaConfig: Linter.Config[],
+    zlAsicaTsConfig: Linter.Config[],
     zlAsicaReactConfig: Linter.Config[],
-    zlAsicaTsConfig: Linter.Config[];
+    zlAsicaTsReactConfig: Linter.Config[];
 }
 
 // For direct imports if needed
