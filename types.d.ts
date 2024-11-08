@@ -1,14 +1,29 @@
 declare module 'eslint-config-zl-asica' {
-  const config: import('eslint').Linter.Config[];
-  export default config;
+  import type { Linter } from 'eslint';
+
+  export const zlAsicaConfig: Linter.Config,
+    zlAsicaReactConfig: Linter.Config,
+    zlAsicaTsConfig: Linter.Config;
 }
 
-declare module 'eslint-config-zl-asica/typescript' {
-  const tsConfig: import('eslint').Linter.Config[];
+// For direct imports if needed
+declare module 'eslint-config-zl-asica/base.js' {
+  import type { Linter } from 'eslint';
+
+  const baseConfig: Linter.Config[];
+  export default baseConfig;
+}
+
+declare module 'eslint-config-zl-asica/typescript.js' {
+  import type { Linter } from 'eslint';
+
+  const tsConfig: Linter.Config[];
   export default tsConfig;
 }
 
-declare module 'eslint-config-zl-asica/react' {
-  const reactConfig: import('eslint').Linter.Config[];
+declare module 'eslint-config-zl-asica/react.js' {
+  import type { Linter } from 'eslint';
+
+  const reactConfig: Linter.Config[];
   export default reactConfig;
 }

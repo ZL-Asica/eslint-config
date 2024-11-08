@@ -1,5 +1,10 @@
+import { existsSync } from 'node:fs';
+
 import pluginReact from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+
+/** Helper function to conditionally apply paths */
+const applyIfExists = (path, config) => (existsSync(path) ? config : undefined);
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -18,35 +23,32 @@ export default [
       'react/prop-types': 'off', // Prevent missing props validation in a React component definition
     },
   },
-  {
-    files: [
-      'src/components/**/*.{js,jsx,ts,tsx}',
-      'src/pages/**/*.{js,jsx,ts,tsx}',
-      'src/context/**/*.{js,jsx,ts,tsx}',
-    ],
+  // Conditionally apply these configurations based on path existence
+  applyIfExists('src/components', {
+    files: ['src/components/**/*.{js,jsx,ts,tsx}'],
     rules: {
       'unicorn/filename-case': [
         'error',
         { cases: { pascalCase: true } }, // PascalCase for components and pages
       ],
     },
-  },
-  {
-    files: ['src/routes/**/*.{js,ts}'],
+  }),
+  applyIfExists('src/hooks', {
+    files: ['src/hooks/**/*.{js,ts}'],
     rules: {
       'unicorn/filename-case': [
         'error',
-        { cases: { kebabCase: true } }, // kebab-case for routes
+        { cases: { camelCase: true } }, // camelCase for hooks
       ],
     },
-  },
-  {
-    files: ['src/hooks/**/*.{js,ts}', 'src/utils/**/*.{js,ts}'],
+  }),
+  applyIfExists('src/utils', {
+    files: ['src/utils/**/*.{js,ts}'],
     rules: {
       'unicorn/filename-case': [
         'error',
-        { cases: { camelCase: true } }, // camelCase for hooks and utils
+        { cases: { camelCase: true } }, // camelCase for utils
       ],
     },
-  },
-];
+  }),
+].filter(Boolean); // Remove any `null` entries from the array

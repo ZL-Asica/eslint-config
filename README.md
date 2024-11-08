@@ -42,7 +42,7 @@ For JavaScript projects, import the main configuration:
 
 ```javascript
 // `eslint.config.js` or `eslint.config.mjs`
-import zlAsicaConfig from 'eslint-config-zl-asica';
+import { zlAsicaConfig } from 'eslint-config-zl-asica';
 
 export default [
   ...zlAsicaConfig,
@@ -62,8 +62,7 @@ If your project uses TypeScript, import the `typescript` configuration in additi
 
 ```javascript
 // `eslint.config.js` or `eslint.config.mjs`
-import zlAsicaConfig from 'eslint-config-zl-asica';
-import zlAsicaTsConfig from 'eslint-config-zl-asica/typescript.js';
+import { zlAsicaConfig, zlAsicaTsConfig } from 'eslint-config-zl-asica';
 
 export default [
   ...zlAsicaConfig,
@@ -84,8 +83,7 @@ For projects that use React, import the `react` configuration alongside the defa
 
 ```javascript
 // `eslint.config.js` or `eslint.config.mjs`
-import zlAsicaConfig from 'eslint-config-zl-asica';
-import zlAsicaReactConfig from 'eslint-config-zl-asica/react.js';
+import { zlAsicaConfig, zlAsicaReactConfig } from 'eslint-config-zl-asica';
 
 export default [
   ...zlAsicaConfig,
@@ -106,9 +104,11 @@ For projects that use both TypeScript and React, import all three configurations
 
 ```javascript
 // `eslint.config.js` or `eslint.config.mjs`
-import zlAsicaConfig from 'eslint-config-zl-asica';
-import zlAsicaTsConfig from 'eslint-config-zl-asica/typescript.js';
-import zlAsicaReactConfig from 'eslint-config-zl-asica/react.js';
+import {
+  zlAsicaConfig,
+  zlAsicaTsConfig,
+  zlAsicaReactConfig,
+} from 'eslint-config-zl-asica';
 
 export default [
   ...zlAsicaConfig,

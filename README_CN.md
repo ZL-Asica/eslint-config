@@ -13,10 +13,10 @@
 
 - [安装](#安装)
 - [使用方法](#使用方法)
-  - [基础使用 (JavaScript 项目)](#基础使用-javascript-项目)
+  - [JavaScript 项目](#javascript-项目)
   - [TypeScript 项目](#typescript-项目)
   - [React 项目](#react-项目)
-  - [TypeScript 和 React 项目](#typescript-和-react-项目)
+  - [TypeScript 和 React 组合项目](#typescript-和-react-组合使用)
 - [配置详情](#配置详情)
 - [为何使用此配置](#为何使用此配置)
 
@@ -34,20 +34,20 @@ pnpm add -D eslint eslint-config-zl-asica
 
 ## 使用方法
 
-此配置提供了三个独立的模块：**默认（JavaScript）**、**TypeScript** 和 **React**。可以根据需要引入不同的配置模块。
+该配置提供了三个独立的模块：**默认（JavaScript）**、**TypeScript** 和 **React**。每个配置可以根据需求单独引入。
 
-### 基础使用 (JavaScript 项目)
+### JavaScript 项目
 
-对于 JavaScript 项目，可以直接引入主配置：
+对于 JavaScript 项目，导入主配置即可：
 
 ```javascript
 // `eslint.config.js` 或 `eslint.config.mjs`
-import zlAsicaConfig from 'eslint-config-zl-asica';
+import { zlAsicaConfig } from 'eslint-config-zl-asica';
 
 export default [
   ...zlAsicaConfig,
 
-  // 自定义规则
+  // 您的自定义规则
   {
     rules: {
       'no-console': 'warn',
@@ -58,18 +58,17 @@ export default [
 
 ### TypeScript 项目
 
-如果项目使用 TypeScript，可以在默认配置的基础上添加 `typescript` 配置：
+如果项目使用 TypeScript，可以在默认配置的基础上引入 `typescript` 配置：
 
 ```javascript
 // `eslint.config.js` 或 `eslint.config.mjs`
-import zlAsicaConfig from 'eslint-config-zl-asica';
-import zlAsicaTsConfig from 'eslint-config-zl-asica/typescript';
+import { zlAsicaConfig, zlAsicaTsConfig } from 'eslint-config-zl-asica';
 
 export default [
   ...zlAsicaConfig,
   ...zlAsicaTsConfig,
 
-  // 自定义规则
+  // 您的自定义规则
   {
     rules: {
       'no-console': 'warn',
@@ -80,18 +79,17 @@ export default [
 
 ### React 项目
 
-对于使用 React 的项目，可以在默认配置的基础上添加 `react` 配置：
+对于使用 React 的项目，可以在默认配置的基础上引入 `react` 配置：
 
 ```javascript
 // `eslint.config.js` 或 `eslint.config.mjs`
-import zlAsicaConfig from 'eslint-config-zl-asica';
-import zlAsicaReactConfig from 'eslint-config-zl-asica/react';
+import { zlAsicaConfig, zlAsicaReactConfig } from 'eslint-config-zl-asica';
 
 export default [
   ...zlAsicaConfig,
   ...zlAsicaReactConfig,
 
-  // 自定义规则
+  // 您的自定义规则
   {
     rules: {
       'no-console': 'warn',
@@ -100,22 +98,24 @@ export default [
 ];
 ```
 
-### TypeScript 和 React 项目
+### TypeScript 和 React 组合使用
 
-如果项目中同时使用 TypeScript 和 React，可以引入所有三个配置：
+对于同时使用 TypeScript 和 React 的项目，可以引入所有三个配置：
 
 ```javascript
 // `eslint.config.js` 或 `eslint.config.mjs`
-import zlAsicaConfig from 'eslint-config-zl-asica';
-import zlAsicaTsConfig from 'eslint-config-zl-asica/typescript';
-import zlAsicaReactConfig from 'eslint-config-zl-asica/react';
+import {
+  zlAsicaConfig,
+  zlAsicaTsConfig,
+  zlAsicaReactConfig,
+} from 'eslint-config-zl-asica';
 
 export default [
   ...zlAsicaConfig,
   ...zlAsicaTsConfig,
   ...zlAsicaReactConfig,
 
-  // 自定义规则
+  // 您的自定义规则
   {
     rules: {
       'no-console': 'warn',
@@ -123,6 +123,8 @@ export default [
   },
 ];
 ```
+
+这样使用可以方便地结合不同的配置，满足不同类型的项目需求。
 
 ## 配置详情
 
