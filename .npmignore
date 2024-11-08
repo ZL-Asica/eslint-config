@@ -3,3 +3,4 @@ prettier.config.cjs
 .prettierignore
 .vscode/
 .github/
+.editorconfig
