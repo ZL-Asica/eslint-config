@@ -50,8 +50,7 @@
     "eslint-plugin-react-hooks": "^5",
     "eslint-plugin-unicorn": "^56",
     "globals": "^15",
-    "typescript-eslint": "^8",
-    "eslint-plugin-simple-import-sort": "^12"
+    "typescript-eslint": "^8"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^8.13.0",

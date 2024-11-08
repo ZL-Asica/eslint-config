@@ -2,7 +2,6 @@ import pluginJs from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
@@ -38,7 +37,6 @@ export default [
   eslintPluginUnicorn.configs['flat/recommended'],
   {
     plugins: {
-      'simple-import-sort': simpleImportSort,
       import: importPlugin,
     },
     settings: {
@@ -64,10 +62,6 @@ export default [
       'unicorn/prefer-object-from-entries': 'error', // Prefer Object.fromEntries() to Object.entries().reduce()
       'unicorn/better-regex': 'error', // Enforce better regexes
       'unicorn/no-abusive-eslint-disable': 'off', // Disallow disabling eslint rules via comments
-
-      // Simple Import Sort Rules
-      'simple-import-sort/imports': 'error', // Enforce import sorting
-      'simple-import-sort/exports': 'error', // Enforce export sorting"
 
       // Import Rules
       'import/first': 'error', // Ensure all imports appear before other statements
