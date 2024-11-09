@@ -75,10 +75,7 @@ export default [
     },
   },
   {
-    files: [
-      'src/components/**/*.{js,jsx,ts,tsx}',
-      'src/pages/**/*.{js,jsx,ts,tsx}',
-    ],
+    files: ['src/components/**/*.{js,jsx,ts,tsx}'],
     rules: {
       'unicorn/filename-case': [
         'error',

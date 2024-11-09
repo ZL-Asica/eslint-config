@@ -1,5 +1,4 @@
 import pluginJs from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
@@ -11,11 +10,15 @@ export default [
     files: ['**/*.{js,mjs,cjs,jsx}'],
     ignores: [
       'node_modules',
+      '.yarn',
       '.pnp.*',
       'dist',
       'build',
       '*.min.*',
       '.wrangler',
+      '**/*.css',
+      '**/*.scss',
+      '**/*.less',
     ],
   },
   {
@@ -40,11 +43,7 @@ export default [
       import: importPlugin,
     },
     settings: {
-      'import/ignore': [
-        'node_modules',
-        '.coffee$', // fraught with parse errors
-        '.(scss|less|css|svg)$', // can't parse unprocessed CSS modules, either
-      ],
+      'import/ignore': ['node_modules', String.raw`\.(scss|less|css|svg)$`],
     },
     rules: {
       // JavaScript Rules
@@ -112,5 +111,4 @@ export default [
       ],
     },
   },
-  eslintConfigPrettier, // Prettier compatibility rules
 ];
