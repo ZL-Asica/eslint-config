@@ -25,6 +25,35 @@ export default [
         { allowConstantExport: true },
       ],
 
+      'unicorn/prevent-abbreviations': [
+        'error',
+        {
+          allowList: {
+            generateStaticParams: true,
+            props: true,
+            params: true,
+          },
+        },
+      ],
+
+      'react-refresh/only-export-components': [
+        'warn',
+        {
+          allowExportNames: [
+            'metadata',
+            'generateMetadata',
+            'generateStaticParams',
+            'generateSitemap',
+            'generateRobotsTxt',
+            'dynamic',
+            'revalidate',
+            'fetchCache',
+            'config',
+            'alternateLinks',
+          ],
+        },
+      ],
+
       // React specific import order
       'import/order': [
         'error',
