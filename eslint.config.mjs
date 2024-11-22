@@ -1,4 +1,4 @@
-import zlAsicaTsReactConfig from 'index.js';
+import zlAsicaTsReactConfig from 'src/index.js';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [...zlAsicaTsReactConfig];

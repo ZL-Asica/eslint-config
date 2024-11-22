@@ -25,6 +25,7 @@ export default [
         { allowConstantExport: true },
       ],
 
+      'unicorn/expiring-todo-comments': 'off', // Disallow TODO comments after a certain time
       'unicorn/prevent-abbreviations': [
         'error',
         {
@@ -117,15 +118,6 @@ export default [
       'unicorn/filename-case': [
         'error',
         { cases: { pascalCase: true } }, // PascalCase for components and pages
-      ],
-    },
-  },
-  {
-    files: ['src/routes/**/*.{js,jsx,ts,tsx}'],
-    rules: {
-      'unicorn/filename-case': [
-        'error',
-        { cases: { kebabCase: true } }, // kebab-case for routes
       ],
     },
   },

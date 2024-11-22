@@ -16,20 +16,23 @@
   "bugs": "https://github.com/ZL-Asica/eslint-config/issues",
   "homepage": "https://github.com/ZL-Asica/eslint-config",
   "funding": "https://github.com/sponsors/ZL-Asica",
-  "main": "./index.js",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.js",
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
   "files": [
     "README.md",
     "README_CN.md",
     "LICENSE",
-    "CHANGELOG.md",
-    "package.json",
-    "index.js",
-    "base.js",
-    "typescript.js",
-    "react.js",
-    "types.d.ts"
+    "src"
   ],
-  "types": "./types.d.ts",
   "keywords": [
     "eslint",
     "eslint-config",
@@ -62,6 +65,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepublishOnly": "node sync-version.mjs"
   }
 }
